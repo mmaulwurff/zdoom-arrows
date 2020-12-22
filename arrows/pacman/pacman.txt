@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+double deg2rad(const int degrees) {
+    return degrees / 360.0 * M_PI * 2.0;
+}
+
+int main() {
+  cout << fixed << setprecision(3);
+
+  const int step = 20;
+  const double radius = 2.0;
+
+  const int mouth_angle = 60;
+  const int angle_begin = mouth_angle / 2;
+  const int angle_end   = 360 - mouth_angle / 2;
+
+  cout << "// C" << endl;
+  for (int angle = angle_begin; angle < angle_end; angle += step) {
+    {
+      const double radians = deg2rad(angle);
+      const double x = cos(radians) * radius;
+      const double y = sin(radians) * radius;
+      cout << "(" << x << ", " << y << "), ";
+    } {
+      const double radians_next = deg2rad(angle + step);
+      const double x_next = cos(radians_next) * radius;
+      const double y_next = sin(radians_next) * radius;
+      cout << "(" << x_next << ", " << y_next << ")" << endl;
+    }
+  }
+
+  cout << endl << "// <" << endl;
+  {
+    const double mouth_start = deg2rad(angle_begin);
+    const double x = cos(mouth_start) * radius;
+    const double y = sin(mouth_start) * radius;
+    cout << "(" << x << ", " << y << "), (0, 0)" << endl;
+  } {
+    const double mouth_end = deg2rad(angle_end);
+    const double x = cos(mouth_end) * radius;
+    const double y = sin(mouth_end) * radius;
+    cout << "(" << x << ", " << y << "), (0, 0)" << endl;
+  }
+
+  return 0;
+}

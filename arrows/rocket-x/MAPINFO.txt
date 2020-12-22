@@ -1,0 +1,5 @@
+gameinfo {
+
+maparrow = "marrow", "ddtmarr"
+
+}
