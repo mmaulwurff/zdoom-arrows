@@ -2,6 +2,8 @@
 
 A collection of alternative automap arrows for [G]ZDoom.
 
+![screenshot](screenshots/screenshot1.png)
+
 Includes:
 - corner
 - pacman
